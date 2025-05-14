@@ -1,0 +1,35 @@
+/* src/components/Jobs/JobCalendar.css */
+
+.job-calendar {
+  margin: 20px;
+}
+
+.job-calendar h3 {
+  margin-top: 20px;
+  font-size: 1.2rem;
+}
+
+.job-calendar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.job-calendar li {
+  background-color: #f4f4f4;
+  padding: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.job-calendar button {
+  background-color: #3498db;
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.job-calendar button:hover {
+  background-color: #2980b9;
+}

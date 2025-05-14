@@ -1,0 +1,27 @@
+/* src/components/NavigationBar.css */
+
+.navigation-bar {
+  background-color: #333;  /* Dark background for the navigation bar */
+  padding: 10px 20px;
+}
+
+.navigation-bar ul {
+  list-style-type: none;  /* Remove bullet points */
+  margin: 0;
+  padding: 0;
+  display: flex;  /* Display items in a row */
+}
+
+.navigation-bar li {
+  margin-right: 20px;  /* Space between navigation items */
+}
+
+.navigation-bar li a {
+  color: white;  /* White text */
+  text-decoration: none;  /* Remove underline */
+  font-weight: bold;
+}
+
+.navigation-bar li a:hover {
+  color: #28a745;  /* Change color on hover */
+}
