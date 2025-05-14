@@ -1,0 +1,35 @@
+/* src/components/Jobs/JobList.css */
+
+.job-list {
+  margin: 20px;
+}
+
+.job-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.job-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+}
+
+.job-list button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.job-list button:hover {
+  background-color: #c0392b;
+}
+
+.job-list strong {
+  color: #333;
+}

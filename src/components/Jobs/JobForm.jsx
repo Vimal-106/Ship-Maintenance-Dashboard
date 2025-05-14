@@ -1,0 +1,78 @@
+// src/components/Jobs/JobForm.jsx
+import React, { useState, useContext } from 'react';
+import JobsContext from '../../contexts/JobsContext';  // Context for jobs
+import './JobForm.css';  // CSS for styling the form
+
+const JobForm = () => {
+  const { addJob } = useContext(JobsContext);  // Context to handle adding jobs
+  const [jobType, setJobType] = useState('');
+  const [priority, setPriority] = useState('');
+  const [status, setStatus] = useState('');
+  const [assignedEngineer, setAssignedEngineer] = useState('');
+  const [scheduledDate, setScheduledDate] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const newJob = {
+      id: `j${Date.now()}`,
+      jobType,
+      priority,
+      status,
+      assignedEngineer,
+      scheduledDate,
+    };
+
+    addJob(newJob);  // Add job using context function
+    setJobType('');
+    setPriority('');
+    setStatus('');
+    setAssignedEngineer('');
+    setScheduledDate('');
+  };
+
+  return (
+    <div className="job-form">
+      <h2>Create Maintenance Job</h2>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Job Type"
+          value={jobType}
+          onChange={(e) => setJobType(e.target.value)}
+          required
+        />
+        <input
+          type="text"
+          placeholder="Priority"
+          value={priority}
+          onChange={(e) => setPriority(e.target.value)}
+          required
+        />
+        <input
+          type="text"
+          placeholder="Status"
+          value={status}
+          onChange={(e) => setStatus(e.target.value)}
+          required
+        />
+        <input
+          type="text"
+          placeholder="Assigned Engineer"
+          value={assignedEngineer}
+          onChange={(e) => setAssignedEngineer(e.target.value)}
+          required
+        />
+        <input
+          type="date"
+          value={scheduledDate}
+          onChange={(e) => setScheduledDate(e.target.value)}
+          required
+        />
+        <button type="submit">Create Job</button>
+      </form>
+    </div>
+  );
+};
+
+export default JobForm;
