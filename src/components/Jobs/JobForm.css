@@ -2,7 +2,7 @@
 
 .job-form {
   max-width: 600px;
-  margin: 0 auto;
+  margin: 50px auto 0 auto;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -11,7 +11,7 @@
 
 .job-form input,
 .job-form select {
-  width: 100%;
+  width: 96%;
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ddd;

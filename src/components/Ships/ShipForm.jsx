@@ -1,11 +1,23 @@
 import React, { useState, useContext } from 'react';
+import {
+  TextField,
+  Button,
+  Box,
+  Grid,
+  Typography,
+  MenuItem,
+  Select,
+  InputLabel,
+  FormControl,
+} from '@mui/material';
+import { useNavigate } from 'react-router-dom'; // ✅ Import useNavigate
 import ShipsContext from '../../contexts/ShipsContext';
-import './ShipForm.css';  // Assuming you have some CSS for styling
+import './ShipForm.css';
 
 const ShipForm = () => {
   const { addShip } = useContext(ShipsContext);
-  
-  // Local state to hold form data
+  const navigate = useNavigate(); // ✅ Initialize navigate hook
+
   const [name, setName] = useState('');
   const [imo, setImo] = useState('');
   const [flag, setFlag] = useState('');
@@ -13,17 +25,15 @@ const ShipForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    // Create a new ship object
+
     const newShip = {
-      id: `s${Date.now()}`,  // Generate a unique id
+      id: `s${Date.now()}`, // ✅ fix: template string needs backticks
       name,
       imo,
       flag,
       status,
     };
 
-    // Add ship to the context (which will also update localStorage)
     addShip(newShip);
 
     // Reset the form fields
@@ -31,46 +41,95 @@ const ShipForm = () => {
     setImo('');
     setFlag('');
     setStatus('');
+
+    // ✅ Redirect to the Ship List page
+    navigate('/ships');
   };
 
   return (
-    <div className="ship-form">
-      <h2>Create New Ship</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Ship Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
-        <input
-          type="text"
-          placeholder="IMO Number"
-          value={imo}
-          onChange={(e) => setImo(e.target.value)}
-          required
-        />
-        <input
-          type="text"
-          placeholder="Flag"
-          value={flag}
-          onChange={(e) => setFlag(e.target.value)}
-          required
-        />
-        <select
-          value={status}
-          onChange={(e) => setStatus(e.target.value)}
-          required
-        >
-          <option value="">Select Status</option>
-          <option value="Active">Active</option>
-          <option value="Under Maintenance">Under Maintenance</option>
-          <option value="Inactive">Inactive</option>
-        </select>
-        <button type="submit">Add Ship</button>
-      </form>
-    </div>
+    <Box
+      component="main"
+      sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        minHeight: '100vh',
+        backgroundColor: '#f4f4f4',
+      }}
+    >
+      <Box
+        sx={{
+          backgroundColor: 'white',
+          padding: 3,
+          borderRadius: 2,
+          boxShadow: 3,
+          width: '400px',
+        }}
+      >
+        <Typography variant="h5" sx={{ textAlign: 'center', marginBottom: 2 }}>
+          Create New Ship
+        </Typography>
+        <form onSubmit={handleSubmit}>
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <TextField
+                fullWidth
+                label="Ship Name"
+                variant="outlined"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                fullWidth
+                label="IMO Number"
+                variant="outlined"
+                value={imo}
+                onChange={(e) => setImo(e.target.value)}
+                required
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                fullWidth
+                label="Flag"
+                variant="outlined"
+                value={flag}
+                onChange={(e) => setFlag(e.target.value)}
+                required
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <FormControl fullWidth required>
+                <InputLabel>Status</InputLabel>
+                <Select
+                  label="Status"
+                  value={status}
+                  onChange={(e) => setStatus(e.target.value)}
+                >
+                  <MenuItem value="Active">Active</MenuItem>
+                  <MenuItem value="Under Maintenance">Under Maintenance</MenuItem>
+                  <MenuItem value="Inactive">Inactive</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
+            <Grid item xs={12}>
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="primary"
+                sx={{ padding: 1.5, fontSize: '16px', textTransform: 'none' }}
+              >
+                Add Ship
+              </Button>
+            </Grid>
+          </Grid>
+        </form>
+      </Box>
+    </Box>
   );
 };
 

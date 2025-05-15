@@ -1,27 +1,64 @@
 // src/components/Jobs/JobList.jsx
 import React, { useContext } from 'react';
-import JobsContext from '../../contexts/JobsContext';  // Import JobsContext
-import './JobList.css';  // CSS for styling the job list
+import JobsContext from '../../contexts/JobsContext';
+import {
+  Card,
+  CardContent,
+  Typography,
+  Grid,
+  Button,
+  Box,
+} from '@mui/material';
+import './JobList.css'; // optional custom styling
 
 const JobList = () => {
-  const { jobs, deleteJob } = useContext(JobsContext);  // Access jobs and deleteJob from context
+  const { jobs, deleteJob } = useContext(JobsContext);
 
   return (
-    <div className="job-list">
-      <h2>Job List</h2>
-      <ul>
-        {jobs.length > 0 ? (
-          jobs.map((job) => (
-            <li key={job.id}>
-              <strong>{job.jobType}</strong> - {job.priority} - {job.status}
-              <button onClick={() => deleteJob(job.id)}>Delete</button>
-            </li>
-          ))
-        ) : (
-          <p>No jobs available</p>
-        )}
-      </ul>
-    </div>
+    <Box sx={{ padding: 4 }}>
+      <Typography variant="h4" gutterBottom>
+        Job List
+      </Typography>
+
+      {jobs.length > 0 ? (
+        <Grid container spacing={3}>
+          {jobs.map((job) => (
+            <Grid item xs={12} key={job.id}>
+              <Card variant="outlined" sx={{ boxShadow: 3 }}>
+                <CardContent sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <Box>
+                    <Typography variant="h6" color="primary">
+                      {job.jobType}
+                    </Typography>
+                    <Typography variant="body2">
+                      Priority: <strong>{job.priority}</strong> &nbsp;&nbsp;
+                      Status: <strong>{job.status}</strong>
+                    </Typography>
+                  </Box>
+                  <Button
+                    variant="contained"
+                    color="error"
+                    size="small"
+                    onClick={() => deleteJob(job.id)}
+                    sx={{
+                      padding: '4px 10px',
+                      fontSize: '0.75rem',
+                      textTransform: 'none',
+                      minWidth: '60px',
+                      mt: '-14px'
+                    }}
+                  >
+                    Delete
+                  </Button>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      ) : (
+        <Typography variant="body1">No jobs available</Typography>
+      )}
+    </Box>
   );
 };
 

@@ -1,30 +1,21 @@
 /* src/components/Ships/ShipForm.css */
 
-.ship-form {
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: white;
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.ship-form input, .ship-form select {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
+button {
+  font-size: 16px;
+  padding: 12px;
 }
 
-.ship-form button {
-  width: 100%;
-  padding: 10px;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+input, select {
+  font-size: 16px;
+  padding: 12px;
 }
 
-.ship-form button:hover {
-  background-color: #218838;
+label {
+  font-weight: bold;
 }

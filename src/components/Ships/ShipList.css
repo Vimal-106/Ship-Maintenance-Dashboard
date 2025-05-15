@@ -1,31 +1,9 @@
-/* src/components/Ships/ShipList.css */
-
-.ship-list {
-  margin: 20px;
+.ship-link {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
 }
 
-.ship-list ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.ship-list li {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-  border: 1px solid #ddd;
-  margin-bottom: 10px;
-  background-color: #f9f9f9;
-}
-
-.ship-list button {
-  background-color: #e74c3c;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-}
-
-.ship-list button:hover {
-  background-color: #c0392b;
+.ship-link:hover {
+  color: #1a237e;
 }
