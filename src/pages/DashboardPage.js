@@ -1,23 +1,27 @@
 // src/pages/DashboardPage.jsx
 import React, { useContext } from 'react';
-import { Navigate } from 'react-router-dom';  // Import Navigate for redirection
-import AuthContext from '../contexts/AuthContext';  // Import AuthContext to get the user role
-import KPICards from '../components/Dashboard/KPICards';  // Import KPIs
+import { Navigate } from 'react-router-dom';
+import AuthContext from '../contexts/AuthContext';
+import KPICards from '../components/Dashboard/KPICards';
+import { Box, Typography } from '@mui/material';
 
 const DashboardPage = () => {
-  const { user } = useContext(AuthContext);  // Get the user from context
+  const { user } = useContext(AuthContext);
 
-  // If user is not logged in, redirect to login page
   if (!user) {
-    return <Navigate to="/login" />;  // Use Navigate to redirect to login page
+    return <Navigate to="/login" />;
   }
 
   return (
-    <div className="dashboard-page">
-      <h1>Welcome, {user.role}!</h1> {/* Dynamic greeting based on role */}
-      <h2>Your Dashboard</h2>
-      <KPICards />  {/* Display KPIs like Total Jobs, Jobs in Progress, etc. */}
-    </div>
+    <Box sx={{ padding: 4 }}>
+      <Typography variant="h4" gutterBottom>
+        Welcome, {user.role}!
+      </Typography>
+      <Typography variant="h5" gutterBottom sx={{ color: 'gray' }}>
+        Your Dashboard
+      </Typography>
+      <KPICards />
+    </Box>
   );
 };
 

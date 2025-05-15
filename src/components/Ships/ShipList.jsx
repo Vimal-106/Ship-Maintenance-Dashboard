@@ -1,30 +1,55 @@
+// src/components/Ships/ShipList.jsx
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';  
-import ShipsContext from '../../contexts/ShipsContext'; 
-import './ShipList.css';  // Assuming you have some CSS for styling
+import { Button, Typography, Card, CardContent, Box, Grid } from '@mui/material';
+import ShipsContext from '../../contexts/ShipsContext';
+import './ShipList.css';  // Custom CSS (optional)
 
 const ShipList = () => {
   const { ships, deleteShip } = useContext(ShipsContext);
 
   return (
-    <div>
-      <h2>Ships</h2>
-      <Link to="/create-ship">
-        <button>Add New Ship</button>
-      </Link>
-      <ul>
+    <Box sx={{ padding: 4 }}>
+      <Box sx={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', mb: 3 }}>
+        <Typography variant="h4" sx={{ flexGrow: 1 }}>Ships</Typography>
+        <Button
+          variant="contained"
+          color="primary"
+          component={Link}
+          to="/create-ship"
+          sx={{ mr: 30 , mt: 2}}
+        >
+          Add New Ship
+        </Button>
+      </Box>
+
+      <Grid container spacing={3}>
         {ships.map((ship) => (
-          <li key={ship.id}>
-            <Link to={`/ship/${ship.id}`}>
-              <strong>{ship.name}</strong>
-            </Link>
-            {" - "}
-            {ship.imo}
-            <button onClick={() => deleteShip(ship.id)}>Delete</button>
-          </li>
+          <Grid item xs={12} sm={6} md={4} key={ship.id}>
+            <Card sx={{ boxShadow: 3 }}>
+              <CardContent>
+                <Typography variant="h6" color="primary">
+                  <Link to={`/ship/${ship.id}`} className="ship-link">
+                    {ship.name}
+                  </Link>
+                </Typography>
+                <Typography variant="body2" sx={{ mb: 2 }}>
+                  IMO Number: {ship.imo}
+                </Typography>
+                <Button
+                  variant="outlined"
+                  color="error"
+                  onClick={() => deleteShip(ship.id)}
+                >
+                  Delete
+                </Button>
+              </CardContent>
+            </Card>
+          </Grid>
         ))}
-      </ul>
-    </div>
+      </Grid>
+    </Box>
   );
 };
+
 export default ShipList;

@@ -1,10 +1,12 @@
-// src/components/Jobs/JobForm.jsx
 import React, { useState, useContext } from 'react';
-import JobsContext from '../../contexts/JobsContext';  // Context for jobs
-import './JobForm.css';  // CSS for styling the form
+import { useNavigate } from 'react-router-dom';  // ✅ Import useNavigate
+import JobsContext from '../../contexts/JobsContext';
+import './JobForm.css';
 
 const JobForm = () => {
-  const { addJob } = useContext(JobsContext);  // Context to handle adding jobs
+  const { addJob } = useContext(JobsContext);
+  const navigate = useNavigate();  // ✅ Initialize the navigate hook
+
   const [jobType, setJobType] = useState('');
   const [priority, setPriority] = useState('');
   const [status, setStatus] = useState('');
@@ -23,12 +25,17 @@ const JobForm = () => {
       scheduledDate,
     };
 
-    addJob(newJob);  // Add job using context function
+    addJob(newJob);
+
+    // Reset form fields
     setJobType('');
     setPriority('');
     setStatus('');
     setAssignedEngineer('');
     setScheduledDate('');
+
+    // ✅ Redirect to the Job List page
+    navigate('/jobs');
   };
 
   return (
