@@ -1,6 +1,6 @@
-// src/components/Notifications/NotificationCenter.jsx
+
 import React, { useState } from 'react';
-import './NotificationCenter.css';  // CSS for styling the notification center
+import '../../styles/NotificationCenter.css';  
 
 const NotificationCenter = () => {
   const [notifications, setNotifications] = useState([]);

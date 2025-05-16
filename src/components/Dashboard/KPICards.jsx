@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { Grid, Card, CardContent, Typography } from '@mui/material';
 import ShipsContext from '../../contexts/ShipsContext';
 import JobsContext from '../../contexts/JobsContext';

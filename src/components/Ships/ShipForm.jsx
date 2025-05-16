@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import { useState, useContext } from 'react';
 import {
   TextField,
   Button,
@@ -10,13 +10,13 @@ import {
   InputLabel,
   FormControl,
 } from '@mui/material';
-import { useNavigate } from 'react-router-dom'; // ✅ Import useNavigate
+import { useNavigate } from 'react-router-dom'; 
 import ShipsContext from '../../contexts/ShipsContext';
-import './ShipForm.css';
+import '../../styles/ShipForm.css';
 
 const ShipForm = () => {
   const { addShip } = useContext(ShipsContext);
-  const navigate = useNavigate(); // ✅ Initialize navigate hook
+  const navigate = useNavigate(); 
 
   const [name, setName] = useState('');
   const [imo, setImo] = useState('');
@@ -27,7 +27,7 @@ const ShipForm = () => {
     e.preventDefault();
 
     const newShip = {
-      id: `s${Date.now()}`, // ✅ fix: template string needs backticks
+      id: `s${Date.now()}`, 
       name,
       imo,
       flag,
@@ -36,13 +36,11 @@ const ShipForm = () => {
 
     addShip(newShip);
 
-    // Reset the form fields
     setName('');
     setImo('');
     setFlag('');
     setStatus('');
 
-    // ✅ Redirect to the Ship List page
     navigate('/ships');
   };
 

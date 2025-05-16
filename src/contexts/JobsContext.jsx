@@ -1,5 +1,4 @@
-// src/contexts/JobsContext.jsx
-import React, { createContext, useState, useEffect } from 'react';
+import { createContext, useState, useEffect } from 'react';
 
 const JobsContext = createContext();
 

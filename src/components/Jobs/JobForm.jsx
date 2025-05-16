@@ -1,11 +1,11 @@
 import React, { useState, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';  // ✅ Import useNavigate
+import { useNavigate } from 'react-router-dom';  
 import JobsContext from '../../contexts/JobsContext';
-import './JobForm.css';
+import '../../styles/JobForm.css';
 
 const JobForm = () => {
   const { addJob } = useContext(JobsContext);
-  const navigate = useNavigate();  // ✅ Initialize the navigate hook
+  const navigate = useNavigate(); 
 
   const [jobType, setJobType] = useState('');
   const [priority, setPriority] = useState('');
@@ -27,14 +27,12 @@ const JobForm = () => {
 
     addJob(newJob);
 
-    // Reset form fields
     setJobType('');
     setPriority('');
     setStatus('');
     setAssignedEngineer('');
     setScheduledDate('');
 
-    // ✅ Redirect to the Job List page
     navigate('/jobs');
   };
 

@@ -1,5 +1,5 @@
-// src/components/Jobs/JobList.jsx
-import React, { useContext } from 'react';
+
+import { useContext } from 'react';
 import JobsContext from '../../contexts/JobsContext';
 import {
   Card,
@@ -9,7 +9,7 @@ import {
   Button,
   Box,
 } from '@mui/material';
-import './JobList.css'; // optional custom styling
+import '../../styles/JobList.css';
 
 const JobList = () => {
   const { jobs, deleteJob } = useContext(JobsContext);
