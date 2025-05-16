@@ -24,7 +24,7 @@ A web-based **Ship Maintenance Dashboard** built with **React** that helps manag
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/ship-maintenance-dashboard.git
+   git clone https://github.com/Vimal-106/Ship-Maintenance-Dashboard.git
    cd ship-maintenance-dashboard
 2. **Install project dependencies**
    ```bash
@@ -42,4 +42,10 @@ A web-based **Ship Maintenance Dashboard** built with **React** that helps manag
    | Admin     | admin@entnt.in     | admin123     |
    | Inspector | inspector@entnt.in | inspect123   |
    | Engineer  | engineer@entnt.in  | engineer123  |
+
+   ## 🌐 Live Demo
+
+   You can try the live deployed version here:  
+   👉 [Live App Link](http://ship-maintenance-dashboard-sigma.vercel.app/)
+
 
