@@ -26,3 +26,20 @@ A web-based **Ship Maintenance Dashboard** built with **React** that helps manag
    ```bash
    git clone https://github.com/yourusername/ship-maintenance-dashboard.git
    cd ship-maintenance-dashboard
+2. **Install project dependencies**
+   ```bash
+   npm install
+3. **Start the development server**
+   ```bash
+   npm start
+4. **Open the application in your browser**
+   ```bash
+   http://localhost:3000
+5. **Login with hardcoded user credentials**
+
+   | Role      | Email              | Password     |
+   |-----------|--------------------|--------------|
+   | Admin     | admin@entnt.in     | admin123     |
+   | Inspector | inspector@entnt.in | inspect123   |
+   | Engineer  | engineer@entnt.in  | engineer123  |
+
