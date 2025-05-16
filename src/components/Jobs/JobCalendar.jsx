@@ -1,9 +1,9 @@
-// src/components/Jobs/JobCalendar.jsx
-import React, { useState, useContext } from 'react';
+
+import { useState, useContext } from 'react';
 import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';  // Import calendar styles
+import 'react-calendar/dist/Calendar.css';  
 import JobsContext from '../../contexts/JobsContext';
-import './JobCalendar.css';  // CSS for styling the calendar
+import '../../styles/JobCalendar.css';  
 
 const JobCalendar = () => {
   const [date, setDate] = useState(new Date());

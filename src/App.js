@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { ShipsProvider } from './contexts/ShipsContext';
 import { JobsProvider } from './contexts/JobsContext';
 import LoginForm from './components/Authentication/LoginForm';
@@ -23,7 +23,6 @@ const AppContent = () => {
 
   return (
     <>
-      {/* Only show NavigationBar and NotificationCenter when logged in and not on /login */}
       {user && !isLoginPage && (
         <>
           <NavigationBar />
@@ -32,6 +31,7 @@ const AppContent = () => {
       )}
 
       <Routes>
+        <Route path="/" element={<Navigate to="/login" replace />} />
         <Route path="/login" element={<LoginForm />} />
         <Route
           path="/ships"

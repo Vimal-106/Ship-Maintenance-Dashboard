@@ -1,9 +1,9 @@
-// src/components/Ships/ShipList.jsx
+
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Typography, Card, CardContent, Box, Grid } from '@mui/material';
 import ShipsContext from '../../contexts/ShipsContext';
-import './ShipList.css';  // Custom CSS (optional)
+import '../../styles/ShipList.css'; 
 
 const ShipList = () => {
   const { ships, deleteShip } = useContext(ShipsContext);
